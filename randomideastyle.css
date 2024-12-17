@@ -1,0 +1,282 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('images/background.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #eaeef1; /* Light text color */
+    line-height: 1.6;
+}
+
+h1, h5 {
+    color: #ffffff; /* White for main headers */
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7); /* Slightly dark background for the header */
+    padding: 10px 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add a shadow effect to the header */
+}
+
+.hamburger {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.hamburger .line {
+    width: 30px;
+    height: 3px;
+    background-color: #eaeef1; /* Lighter color for the hamburger lines */
+}
+
+.logo img {
+    height: 50px;
+    object-fit: contain;
+}
+
+/* Sidebar Styles */
+.primary-nav {
+    height: 100%;
+    width: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9); /* Darker background for the sidebar */
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.primary-nav a {
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 24px;
+    color: #eaeef1;
+    display: block;
+    transition: 0.3s;
+}
+
+.primary-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Highlight links with hover effect */
+}
+
+.primary-nav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    font-size: 36px;
+    color: #ffffff;
+}
+
+.sidebar{
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+/* Content Styles */
+.content {
+    padding: 10px 10px;
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for content */
+    border-radius: 4px;;
+    margin: 30px auto;
+    width: 75%;
+    max-width: 900px;
+}
+
+.content h1 {
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.content h5 {
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+#user-idea{
+    width: 100%;
+    resize: vertical;
+}
+
+/* Increase size of Try Example button */
+.content button {
+    font-size: 12px;
+    padding: 10px 25px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid #ffffff;
+    border-radius: 4px;;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.content button:hover {
+    background-color: #ffffff; /* Darker green on hover */
+    color: #000;
+}
+
+.content button:active {
+    background-color: #387a3c; /* Even darker green when clicked */
+}
+
+/* Form Input Styles */
+form div {
+    margin: 15px 10px;
+    display: flex;
+    flex-direction: column; /* Stack inputs vertically */
+    justify-content: flex-start;
+}
+
+form label {
+    font-size: 18px;
+    color: #eaeef1;
+    margin-bottom: 0; /* Space between label and input */
+}
+#setting-atmosphere {
+    width: auto; /* Ensure it takes full available width */
+    max-width: 1000px; /* Optionally limit the maximum width */
+    height: 20px; /* Adjust the height */
+    
+}
+
+form input,
+form select,
+form textarea { /* Added textarea selector */
+    width: auto; /* Make input and select take full width */
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Remove border-radius: 4px;ectangular shape */
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+}
+
+form textarea {
+    height: 150px; /* Increased height for the text area */
+    resize: vertical; /* Allows user to resize vertically */
+}
+
+form select {
+    cursor: pointer;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus { /* Added focus for textarea */
+    outline: none;
+    border-color: rgba(232, 182, 0, 0.8);
+}
+
+/* Character Input Container */
+.character-input-container {
+    position: relative;
+    width: 92%; /* Make container full width */
+    max-width: 800px; /* Optional: Set a max-width for the container */
+    margin: 0 auto; /* Center the container */
+    padding: 20px;
+    background-color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;; /* Optional: For rounded corners */
+}
+
+/* Increased Size for Idea Box Input */
+.character-input-container input {
+    width: calc(100% - 80px); /* Make input take almost full width, leaving space for the button */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Rounded corners for input */
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+}
+
+/* "+Add" Button Merged with the Idea Box */
+.character-input-container button {
+    position: absolute;
+    right: 16px; /* Align the button to the right inside the input box */
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    color: white;
+    border: 1px solid #ffffff;
+    padding: 16px; /* Slightly bigger button */
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Hover Effect for +Add Button */
+.character-input-container button:hover {
+    background-color: #ffffff; /* Darker green on hover */
+    color: #000;
+}
+
+.character-input-container button:active {
+    background-color: #387a3c; /* Even darker green when clicked */
+}
+
+/* Form Buttons */
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.form-buttons .back-button, .form-buttons .submit-button {
+    width: 48%; /* Adjust width to make sure buttons are not too wide */
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Back Button Styling */
+.form-buttons .back-button {
+    background-color: rgba(232, 182, 0, 0.8);
+    border: none;
+}
+
+/* Write Button Styling */
+.form-buttons .submit-button {
+    background-color: rgba(232, 182, 0, 0.8);
+    border: none;
+    color: white;
+}
+
+/* Hover and Active States for Form Buttons */
+.form-buttons button:hover {
+    background-color: #ffffff; /* Darker green on hover */
+    color: #000;}
+
+.form-buttons button:active {
+    background-color: #ffffff; /* Darker green on hover */
+    color: #000;}
+
+/* Character List Styling */
+.character-list {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.character-list input {
+    width: 100%; /* Full width input for character names */
+    margin-bottom: 10px;
+}

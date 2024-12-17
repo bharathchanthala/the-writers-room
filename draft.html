@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Writer’s Room - Draft Page</title>
+    <link rel="stylesheet" href="draftstyle.css">
+</head>
+
+<body>
+    <!-- Header and Sidebar -->
+    <div class="header">
+        <button class="hamburger" onclick="toggleNav()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </button>
+        <div class="logo">
+            <img src="images/titlelogo.png" alt="The Writer's Room Logo">
+        </div>
+    </div>
+
+    <div id="primary-nav" class="primary-nav">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">×</a>
+        <ul class="sidebar">
+            <li><a href="welcome.html">New</a></li>
+            <li><a href="#">Recent</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h1 class="welcome-title">Welcome to the Writer's Room!</h1>
+        <h5 class="description">Here we can brainstorm script writing, from idea to screenplay!</h5>
+
+        <!-- Content Box -->
+        <div class="draft-container">
+            <textarea class="draft-box" id="draft-box" placeholder="Write your draft here..."></textarea>
+
+            <div class="button-container">
+                <!-- Left side: File Upload -->
+                <div class="file-upload">
+                    <input type="file" id="fileInput" name="fileInput">
+                </div>
+
+                <!-- Right side: Continue Button -->
+                <button class="continue-btn" onclick="window.location.href='write.html';">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+        // Form submission logic
+        document.querySelector(".draft-container").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const idea = document.getElementById("user-idea").value;
+            const length = document.getElementById("story-length").value;
+            const genre = document.getElementById("genre").value;
+            const setting = document.getElementById("setting-atmosphere").value;
+            const characters = Array.from(document.querySelectorAll("#character-list .character-name")).map((char) => char.textContent);
+
+            localStorage.setItem("storyData", JSON.stringify({ idea, length, genre, setting, characters }));
+            window.location.href = "write.html";
+        });
+        function toggleNav() {
+            const nav = document.getElementById('primary-nav');
+            nav.style.width = nav.style.width === '250px' ? '0' : '250px';
+        }
+    </script>
+</body>
+
+</html>

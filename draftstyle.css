@@ -1,0 +1,171 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('images/background.png') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+}
+
+.hamburger {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.hamburger .line {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+}
+
+.logo img {
+    height: 40px;
+    object-fit: contain;
+}
+
+/* Sidebar Styles */
+.primary-nav {
+    height: 100%;
+    width: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    z-index: 10000;
+}
+
+.primary-nav a {
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 24px;
+    color: #eaeef1;
+    display: block;
+    transition: 0.3s;
+}
+
+.primary-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.primary-nav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    font-size: 36px;
+    color: #ffffff;
+}
+
+.sidebar{
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+/* Welcome Title */
+.welcome-title {
+    font-size: 30px; /* Smaller title size */
+    font-weight: bold;
+    margin-bottom: 20px; /* Space between the title and description */
+    width: 80%; /* Match the width of the draft-container */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Content Styles */
+.content {
+    padding: 50px;
+    position: relative;
+    max-width: 1000px; /* Optional: to keep content from stretching too wide */
+    margin: 0 auto; /* Center the content */
+}
+
+/* Description */
+.description {
+    font-weight: 300;
+    font-size: 20px;
+    padding: 0px 0; /* Adjust padding for better alignment */
+    width: 80%; /* Match the width of the draft-container */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Draft Container */
+.draft-container {
+    margin-top: 250px; /* Reduced margin for tighter alignment */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%; /* Match the width of the description and title */
+    margin-left: auto; /* Center the container */
+    margin-right: auto; /* Center the container */
+}
+
+/* Draft Box Styles */
+.draft-box {
+    width: 100%; /* Match the width of the container */
+    height: 70px;
+    resize: both; /* Allows resizing in both directions */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Button Container */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+}
+
+/* File Upload Styles */
+.file-upload {
+    flex: 1;
+}
+
+.file-upload label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.file-upload input {
+    padding: 5px;
+}
+
+/* Continue Button Styles */
+.continue-btn {
+    background-color: rgba(232, 182, 0, 0.8);
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.continue-btn:hover {
+    background-color: #ffffff; /* Darker green on hover */
+    color: #000;}

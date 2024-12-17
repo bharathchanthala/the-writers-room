@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draft</title>
+    <link rel="stylesheet" href="writestyle.css">
+</head>
+
+<body>
+    <!-- Header and Sidebar -->
+    <div class="header">
+        <button class="hamburger" onclick="toggleNav()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </button>
+        <div class="logo">
+            <img src="images/titlelogo.png" alt="The Writer's Room Logo">
+        </div>
+    </div>
+
+    <div id="primary-nav" class="primary-nav">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">×</a>
+        <ul class="sidebar">
+            <li><a href="welcome.html">New</a></li>
+            <li><a href="#">Recent</a></li>
+        </ul>
+    </div>
+
+    <!-- Navigation -->
+    <div id="primary-nav" class="primary-nav">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">×</a>
+        <ul>
+            <li><a href="welcome.html">New</a></li>
+            <li><a href="#">Recent</a></li>
+        </ul>
+    </div>
+
+    <!-- Draft Content -->
+    <div class="draft-container">
+        <div class="draft-header">
+            <button class="expand-btn" onclick="expandStory()">Expand Story✨</button>
+            <div class="navigation-buttons">
+                <button class="prev-btn" onclick="goToPreviousPage()">◁ Previous</button>
+                <button class="next-btn" onclick="goToNextPage()">Next ▷</button>
+            </div>
+        </div>
+        <div class="draft-content">
+            <div class="draft-text-container">
+                <!-- Title and Genre -->
+                <div class="title-genre">
+                    <h3 id="draft-title">Title: My Story</h3>
+                    <h4 id="draft-genre">Genre: Fantasy</h4>
+                </div>
+            
+                <!-- Dialogue Sections -->
+                <div class="dialogue" data-character="Character A">
+                    <p><strong>Character A:</strong> Hello, how are you?</p>
+                    <div class="hover-buttons">
+                        <button onclick="openDialoguePopup(this, 'paraphrase')">Paraphrase</button>
+                        <button onclick="openDialoguePopup(this, 'dialogue')">Dialogue</button>
+                        <button onclick="openDialoguePopup(this, 'feedback')">Feedback</button>
+                    </div>
+
+<!-- Popup Modal -->
+<div id="dialoguePopup" class="popup-modal">
+    <div class="popup-content">
+        <h3 id="popupHeader">Edit Dialogue</h3>
+        
+        <!-- AI Feedback Section (Visible only in 'Feedback' mode) -->
+        <div id="aiFeedbackSection" class="ai-feedback-section">
+            <p><strong>AI Feedback Suggestion:</strong></p>
+            <p id="aiFeedbackText">This is a placeholder for AI-generated feedback suggestions.</p>
+        </div>
+        
+        <textarea id="dialogueTextArea"></textarea>
+        <div class="popup-buttons">
+            <button id="aiButton" onclick="generateAIContent()">AI Paraphrase</button>
+            <button onclick="saveEditedDialogue()">Save</button>
+        </div>
+        <span class="close-modal" onclick="closePopup()">×</span>
+    </div>
+</div>
+
+
+                    
+                    <span class="three-dots" onclick="togglePopupMenu(this)">⋮</span>
+
+
+
+                    <div class="popup-menu">
+                        <button onclick="openPopup('narratives')">Add Narratives</button>
+                        <button onclick="openPopup('dialogues')">Add Dialogues</button>
+                    </div>
+                    
+
+
+<!-- Popup Modal -->
+<div id="popupModal" class="popup-modal">
+    <div class="popup-content">
+        <h3 id="popupTitle">Add Content</h3>
+        <textarea id="popupText" placeholder="Write your content here..."></textarea>
+        <div class="popup-buttons">
+            <button id="aiButton" onclick="generateAIContent()">AI Narratives</button>
+            <button onclick="confirmContent()">Confirm</button>
+        </div>
+        <span class="close-modal" onclick="closePopup()">×</span>
+    </div>
+</div>
+
+
+
+
+                    <!-- <span class="three-dots" onclick="showMenu(this)">⋮</span> -->
+
+                </div>
+            
+                <div class="dialogue" data-character="Character B">
+                    <p><strong>Character B:</strong> I'm good, thanks! And you?</p>
+                    <div class="hover-buttons">
+                        <button onclick="openDialoguePopup(this, 'paraphrase')">Paraphrase</button>
+                        <button onclick="openDialoguePopup(this, 'dialogue')">Dialogue</button>
+                        <button onclick="openDialoguePopup(this, 'feedback')">Feedback</button>
+                    </div>
+
+<!-- Popup Modal -->
+<div id="dialoguePopup" class="popup-modal">
+    <div class="popup-content">
+        <h3 id="popupHeader">Edit Dialogue</h3>
+        
+        <!-- AI Feedback Section (Visible only in 'Feedback' mode) -->
+        <div id="aiFeedbackSection" class="ai-feedback-section">
+            <p><strong>AI Feedback Suggestion:</strong></p>
+            <p id="aiFeedbackText">This is a placeholder for AI-generated feedback suggestions.</p>
+        </div>
+        
+        <textarea id="dialogueTextArea"></textarea>
+        <div class="popup-buttons">
+            <button id="aiButton" onclick="generateAIContent()">AI Paraphrase</button>
+            <button onclick="saveEditedDialogue()">Save</button>
+        </div>
+        <span class="close-modal" onclick="closePopup()">×</span>
+    </div>
+</div>
+
+
+                        <span class="three-dots" onclick="showMenu(this)">⋮</span>
+
+
+                </div>
+            </div>
+            
+                
+                <!-- <textarea id="draftText" placeholder="Start writing your draft..."></textarea> -->
+        </div>
+        <div class="export-container">
+            <input type="file" id="uploadFile" accept=".txt" onchange="uploadFile(event)" />
+        </div>
+    </div>
+
+    <script src="writescript.js"></script>
+</body>
+
+</html>

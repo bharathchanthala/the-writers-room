@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Writer’s Room</title>
+    <link rel="stylesheet" href="welcomestyle.css">
+</head>
+<body>
+    <!-- Header and Sidebar -->
+    <div class="header">
+        <button class="hamburger" onclick="toggleNav()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </button>
+        <div class="logo">
+            <img src="images/titlelogo.png" alt="The Writer's Room Logo">
+        </div>
+    </div>
+
+    <div id="primary-nav" class="primary-nav">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">×</a>
+        <ul class="sidebar">
+            <li><a href="welcome.html">New</a></li>
+            <li><a href="#">Recent</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h1>Welcome to the Writer's Room!</h1>
+        <h5>Here we can brainstorm script writing, from idea to screenplay!</h5>
+        <div class="buttons">
+            <button onclick="window.location.href='draft.html';">Have an Idea? Start Drafting</button>
+            <button onclick="window.location.href='randomidea.html';">Try Random Idea Generator</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

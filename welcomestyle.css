@@ -1,0 +1,119 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('images/background.png') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+}
+
+.hamburger {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.hamburger .line {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+}
+
+.logo img {
+    height: 40px;
+    object-fit: contain;
+}
+
+/* Sidebar Styles */
+.primary-nav {
+    height: 100%;
+    width: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9); /* Darker background for the sidebar */
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.primary-nav a {
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 24px;
+    color: #eaeef1;
+    display: block;
+    transition: 0.3s;
+}
+
+.primary-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Highlight links with hover effect */
+}
+
+.primary-nav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    font-size: 36px;
+    color: #ffffff;
+}
+
+.sidebar{
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+/* Content Styles */
+.content {
+    padding: 100px;
+    text-align: center;
+}
+
+.content h1 {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.content h5 {
+    font-size: 28px;
+    margin-top: 10px;
+}
+
+/* Button Styles */
+.buttons {
+    margin-top: 50px;
+}
+
+.buttons button {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px;
+    transition: all 0.3s ease;
+}
+
+.buttons button:hover {
+    background-color: #ffffff; /* Darker green on hover */
+    color: #000;
+}
