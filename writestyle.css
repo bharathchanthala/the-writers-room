@@ -11,8 +11,8 @@ body {
 /* Header Styles */
 .header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     background: rgba(0, 0, 0, 0.7);
     padding: 10px 20px;
 }
@@ -23,7 +23,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 30px;
     height: 30px;
     cursor: pointer;
 }
@@ -46,10 +45,12 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.9); /* Darker background for the sidebar */
+    background-color: rgba(0, 0, 0, 0.9);
+    /* Darker background for the sidebar */
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
+    z-index: 100;
 }
 
 .primary-nav a {
@@ -62,7 +63,8 @@ body {
 }
 
 .primary-nav a:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Highlight links with hover effect */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Highlight links with hover effect */
 }
 
 .primary-nav .closebtn {
@@ -73,7 +75,7 @@ body {
     color: #ffffff;
 }
 
-.sidebar{                           
+.sidebar {
     list-style-type: none;
     padding-left: 0px;
 }
@@ -96,7 +98,6 @@ body {
 .prev-btn,
 .next-btn,
 .export-btn {
-    padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
@@ -110,36 +111,29 @@ body {
 }
 
 .enhance-btn:hover {
-    background-color: #ffffff; /* Darker green on hover */
+    background-color: #ffffff;
+    /* Darker green on hover */
     color: #000;
 }
 
 .navigation-buttons button {
     background-color: rgba(232, 182, 0, 0.8);
     color: white;
+    padding: 8px 12px;
     border: none;
-    margin: 0 10px;
+    margin: 0 4px;
 }
 
 .navigation-buttons button:hover {
-    background-color: #ffffff; /* Darker green on hover */
+    background-color: #ffffff;
+    /* Darker green on hover */
     color: #000;
 }
 
 .export-container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin-top: 20px;
-}
-
-.export-btn {
-    background-color: rgba(244, 67, 54, 0.8);
-    color: white;
-    border: none;
-}
-
-.export-btn:hover {
-    background-color: rgba(244, 67, 54, 1);
 }
 
 /* Draft Text Area */
@@ -148,6 +142,8 @@ body {
     overflow-y: auto;
     border: 1px solid #ddd;
     padding: 10px;
+    background: white;
+    color: black;
 }
 
 textarea {
@@ -172,7 +168,7 @@ textarea {
     .draft-header {
         flex-direction: column;
         align-items: flex-start;
-       
+
     }
 
     .navigation-buttons button {
@@ -180,13 +176,13 @@ textarea {
     }
 }
 
-
 /* Title and Genre */
 .title-genre {
     margin-bottom: 20px;
 }
 
-.title-genre h2, .title-genre p {
+.title-genre h2,
+.title-genre p {
     margin: 0;
 }
 
@@ -195,15 +191,14 @@ textarea {
     position: relative;
     margin-bottom: 20px;
     padding: 10px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgb(233 233 233);
     border-radius: 8px;
 }
 
 /* Three Dots Menu */
 .three-dots {
     position: relative;
-    top: 10px;
-    left: 10px;
+    left: 8px;
     font-size: 20px;
     cursor: pointer;
 }
@@ -237,14 +232,12 @@ textarea {
 }
 
 
-
 /* Popup Menu Styles */
 .popup-menu {
-    display: none; /* Initially hidden */
+    display: none;
+    /* Initially hidden */
     position: relative;
-    top:-10px;
-    left: 25px;
-    width:max-content;
+    width: max-content;
     background-color: rgba(0, 0, 0, 0.9);
     border-radius: 8px;
     padding: 10px;
@@ -266,10 +259,6 @@ textarea {
     background-color: rgba(0, 150, 136, 1);
 }
 
-
-
-
-
 /* Modal Background */
 .popup-modal {
     display: none;
@@ -285,7 +274,7 @@ textarea {
 }
 
 /* Modal Content */
-.popup-content {
+.popupcontent {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
@@ -294,16 +283,15 @@ textarea {
     position: relative;
 }
 
-.popup-content h3 {
+.popupcontent h3 {
     margin-bottom: 10px;
     color: #333;
 }
 
-.popup-content textarea {
+.popupcontent textarea {
     width: 100%;
     height: 100px;
     margin: 10px 0;
-    padding: 10px;
     font-size: 14px;
     resize: none;
 }
@@ -334,10 +322,6 @@ textarea {
 .close-modal:hover {
     color: #f44336;
 }
-
-
-
-
 
 /* Popup Modal Styles */
 .popup-modal {
@@ -353,7 +337,7 @@ textarea {
     z-index: 1000;
 }
 
-.popup-content {
+.popupcontent {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
@@ -362,22 +346,21 @@ textarea {
     position: relative;
 }
 
-.popup-content h3 {
+.popupcontent h3 {
     margin-bottom: 10px;
     color: #333;
 }
 
-.popup-content textarea {
+.popupcontent textarea {
     width: 100%;
     height: 100px;
     margin: 10px 0;
-    padding: 10px;
     font-size: 14px;
     resize: none;
 }
 
 .popup-buttons button {
-    background-color: #00897b;
+    background-color: #9747FF;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -387,27 +370,13 @@ textarea {
 }
 
 .popup-buttons button:hover {
-    background-color: #00796b;
+    background-color: #E8B600;
 }
-
-.close-modal {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 24px;
-    color: #333;
-    cursor: pointer;
-}
-
-.close-modal:hover {
-    color: #f44336;
-}
-
-
 
 /* AI Feedback Section */
 .ai-feedback-section {
-    display: none; /* Hidden by default */
+    display: none;
+    /* Hidden by default */
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     padding: 10px;
@@ -420,4 +389,122 @@ textarea {
     margin: 5px 0;
     font-size: 14px;
     color: #333;
+}
+
+/* Button Style */
+.export-btn {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.exportlogo {
+    width: 24px;
+    margin-left: 8px;
+}
+
+.bling_blinglogo {
+    width: 24px;
+    margin-left: 4px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+}
+
+.importlogo {
+    width: 24px;
+    margin-left: 8px;
+}
+
+.subtitle {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.magic-btn {
+    display: flex;
+    align-items: center;
+    background-color: rgba(232, 182, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.magiclogo {
+    width: 24px;
+    margin-left: 4px;
+}
+
+.magicpopup-modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.magicpopupcontent {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+
+/* Confirm Content */
+.popup-content {
+    background-color: #ffffff;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 400px;
+}
+
+.confirmbutton {
+    background-color: #9747FF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.confirmbutton:hover {
+    background-color: #FFC800;
+}
+
+.confirm-close-modal {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
 }

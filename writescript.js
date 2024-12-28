@@ -99,11 +99,6 @@ document.addEventListener("click", function (event) {
     }
 });
 
-
-
-
-
-
 let currentMode = ""; // To track 'narratives' or 'dialogues'
 
 function openPopup(mode) {
@@ -113,7 +108,7 @@ function openPopup(mode) {
     const aiButton = document.getElementById("aiButton");
 
     // Update modal content dynamically
-    popupTitle.textContent = mode === "narratives" ? "Add Narratives" : "Add Dialogues";
+    popupTitle.textContent = mode === "narratives" ? "Add narratives" : "Add dialogues";
     aiButton.textContent = mode === "narratives" ? "AI Narratives" : "AI Dialogues";
 
     popupModal.style.display = "flex";
@@ -137,8 +132,8 @@ function confirmContent() {
 
 function generateAIContent() {
     // Simulate AI generation
-    const aiContent = currentMode === "narratives" 
-        ? "AI-generated narrative content here..." 
+    const aiContent = currentMode === "narratives"
+        ? "AI-generated narrative content here..."
         : "AI-generated dialogue content here...";
     document.getElementById("popupText").value = aiContent;
 }
@@ -150,42 +145,43 @@ document.addEventListener("click", function (event) {
     }
 });
 
-
-
-
-
 let currentDialogueElement; // To track the current dialogue div being edited
 
 function openDialoguePopup(button, mode) {
     const dialogueDiv = button.closest(".dialogue");
     currentDialogueElement = dialogueDiv.querySelector("p"); // Store current dialogue element
-    
+
     const character = dialogueDiv.getAttribute("data-character");
-    const dialogueText = currentDialogueElement.innerText.split(":")[1].trim();
-    
-    // Update modal content
-    document.getElementById("popupHeader").textContent =
-        mode === "paraphrase" ? "Paraphrase Dialogue" :
-        mode === "dialogue" ? "Edit Dialogue" :
-        "Feedback";
-    document.getElementById("aiButton").textContent =
-        mode === "paraphrase" ? "AI Paraphrase" :
-        mode === "dialogue" ? "AI Dialogue" :
-        "AI Feedback";
-    document.getElementById("dialogueTextArea").value = `${character}: ${dialogueText}`;
-    
-    // Show AI Feedback section only for 'Feedback' mode
-    const aiFeedbackSection = document.getElementById("aiFeedbackSection");
-    if (mode === "feedback") {
-        aiFeedbackSection.style.display = "block";
-        document.getElementById("aiFeedbackText").textContent =
-            "This is a placeholder for AI-generated feedback suggestions.";
-    } else {
-        aiFeedbackSection.style.display = "none";
+    const dialogueText = currentDialogueElement.innerText.split(":")[1]?.trim() || "";
+
+    // Update modal content dynamically
+    const popup = document.getElementById("dialoguePopup");
+    if (!popup) {
+        console.error("Popup modal not found!");
+        return;
     }
-    
+
+    popup.querySelector("#popupHeader").textContent =
+        mode === "paraphrase" ? "Paraphrase" :
+        mode === "dialogue" ? "Re-generate" : "Feedback";
+    popup.querySelector("#aiButton").textContent =
+        mode === "paraphrase" ? "AI Paraphrase" :
+        mode === "dialogue" ? "AI Dialogue" : "AI Feedback";
+    const textArea = popup.querySelector("textarea");
+    if (textArea) {
+        textArea.value = `${character}: ${dialogueText}`;
+    } else {
+        console.error("Textarea not found in popup modal.");
+    }
+
+    // Show AI Feedback section only for 'Feedback' mode
+    const aiFeedbackSection = popup.querySelector("#aiFeedbackSection");
+    if (aiFeedbackSection) {
+        aiFeedbackSection.style.display = mode === "feedback" ? "block" : "none";
+    }
+
     // Show the modal
-    document.getElementById("dialoguePopup").style.display = "flex";
+    popup.style.display = "flex";
 }
 
 function closePopup() {
@@ -209,9 +205,9 @@ function generateAIContent() {
     const mode = document.getElementById("aiButton").textContent;
     const aiGeneratedText =
         mode === "AI Paraphrase" ? "AI paraphrased version of the dialogue..." :
-        mode === "AI Dialogue" ? "AI-generated new dialogue content..." :
-        "AI-generated feedback for the dialogue...";
-    
+            mode === "AI Dialogue" ? "AI-generated new dialogue content..." :
+                "AI-generated feedback for the dialogue...";
+
     document.getElementById("dialogueTextArea").value = aiGeneratedText;
 }
 
@@ -222,4 +218,135 @@ window.onclick = function (event) {
         closePopup();
     }
 };
+
+function openPopup(mode) {
+    currentMode = mode;
+    const popupModalId = mode === "narratives" ? "narrativespopupModal" : "dialoguespopupModal";
+    const popupModal = document.getElementById(popupModalId);
+
+    if (!popupModal) {
+        console.error(`Popup modal with id '${popupModalId}' not found.`);
+        return;
+    }
+
+    const popupTitle = popupModal.querySelector("#popupTitle");
+    const aiButton = popupModal.querySelector("#aiButton");
+
+    // Update modal content dynamically
+    if (popupTitle) {
+        popupTitle.textContent = mode === "narratives" ? "Add narratives" : "Add dialogues";
+    }
+    if (aiButton) {
+        aiButton.textContent = mode === "narratives" ? "AI Narratives" : "AI Dialogues";
+    }
+
+    popupModal.style.display = "flex";
+}
+
+function closenarrativespopupModal() {
+    const narrativesPopupModal = document.getElementById("narrativespopupModal");
+    if (narrativesPopupModal) {
+        narrativesPopupModal.style.display = "none";
+        const popupText = narrativesPopupModal.querySelector("#popupText");
+        if (popupText) {
+            popupText.value = ""; // Clear the text area if needed
+        }
+    } else {
+        console.error("Narratives popup modal not found.");
+    }
+}
+
+function closedialoguespopupModal() {
+    const dialoguesPopupModal = document.getElementById("dialoguespopupModal");
+    if (dialoguesPopupModal) {
+        dialoguesPopupModal.style.display = "none";
+        const popupText = dialoguesPopupModal.querySelector("#popupText");
+        if (popupText) {
+            popupText.value = ""; // Clear the text area if needed
+        }
+    } else {
+        console.error("Dialogues popup modal not found.");
+    }
+}
+
+// Function to open the modal
+function openMagicPopupModal() {
+    const modal = document.getElementById("magicpopupModal");
+    if (modal) {
+        modal.style.display = "flex"; // Display modal
+    } else {
+        console.error("Magic popup modal not found!");
+    }
+}
+
+// Function to close the modal
+function closeMagicPopupModal() {
+    const modal = document.getElementById("magicpopupModal");
+    if (modal) {
+        modal.style.display = "none"; // Hide modal
+    } else {
+        console.error("Magic popup modal not found!");
+    }
+}
+
+// Optional: Toggle modal visibility
+function toggleMagicPopupModal() {
+    const modal = document.getElementById("magicpopupModal");
+    if (modal) {
+        modal.style.display = modal.style.display === "flex" ? "none" : "flex";
+    } else {
+        console.error("Magic popup modal not found!");
+    }
+}
+
+// Close the modal when clicking outside of it
+window.onclick = function(event) {
+    const modal = document.getElementById("magicpopupModal");
+    if (event.target === modal) {
+        closeMagicPopupModal();
+    }
+};
+
+function saveAndOpenNewVersion() {
+    alert("Saving and opening a new version...");
+    // Add your logic for saving and opening a new version here.
+}
+
+function regenerateWithoutSaving() {
+    alert("Regenerating content without saving...");
+    // Add your logic for regenerating without saving here.
+}
+
+// Confirm Content
+function confirmContent() {
+    alert("Content confirmed!");
+    closeConfirmModal(); // Optional: Close the modal after confirming
+}
+
+function openConfirmModal() {
+    const modal = document.getElementById("confirmModal");
+    if (modal) {
+        modal.style.display = "flex"; // Adjust based on your CSS for showing modals
+    } else {
+        console.error("Confirm modal not found!");
+    }
+}
+
+function closeConfirmModal() {
+    const modal = document.getElementById("confirmModal");
+    if (modal) {
+        modal.style.display = "none";
+    } else {
+        console.error("Confirm modal not found!");
+    }
+}
+
+function closeconfirmModal() {
+    const modal = document.getElementById("confirmModal");
+    if (modal) {
+        modal.style.display = "none";
+    } else {
+        console.error("Confirm modal not found!");
+    }
+}
 

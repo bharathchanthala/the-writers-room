@@ -41,7 +41,23 @@
     <!-- Draft Content -->
     <div class="draft-container">
         <div class="draft-header">
-            <button class="expand-btn" onclick="expandStory()">Expand Story✨</button>
+            <div id="magicpopupModal" class="magicpopup-modal">
+                <div class="magicpopupcontent">
+                    <h3>Re-generate Options</h3>
+                    <div class="popup-buttons">
+                        <button class="save-btn" onclick="saveAndOpenNewVersion()">Confirm and Open a New
+                            Version</button>
+                        <button class="regenerate-btn" onclick="regenerateWithoutSaving()">Regenerate Without
+                            Saving</button>
+                    </div>
+                    <span class="close-modal" onclick="closeMagicPopupModal()">×</span>
+                </div>
+            </div>
+
+            <button class="magic-btn" onclick="openMagicPopupModal()">Re-generate shortcut
+                <img class="magiclogo" src="images/magic-white.png" alt="magic-white logo">
+            </button>
+
             <div class="navigation-buttons">
                 <button class="prev-btn" onclick="goToPreviousPage()">◁ Previous</button>
                 <button class="next-btn" onclick="goToNextPage()">Next ▷</button>
@@ -54,110 +70,186 @@
                     <h3 id="draft-title">Title: My Story</h3>
                     <h4 id="draft-genre">Genre: Fantasy</h4>
                 </div>
-            
+
                 <!-- Dialogue Sections -->
-                <div class="dialogue" data-character="Character A">
-                    <p><strong>Character A:</strong> Hello, how are you?</p>
+                <div class="dialogue" data-character="Character">
+                    <p class="subtitle"><strong>EXT. SPOOKY TOWN - NIGHT :</strong> The CAMERA pans over a deserted town
+                        shrouded in darkness. The full moon casts shadows on cracked sidewalks, while a chill runs
+                        through the air.
+                        An old SIGN creaks in the wind: "Baker’s Phantom."</p>
                     <div class="hover-buttons">
                         <button onclick="openDialoguePopup(this, 'paraphrase')">Paraphrase</button>
-                        <button onclick="openDialoguePopup(this, 'dialogue')">Dialogue</button>
+                        <button onclick="openDialoguePopup(this, 'dialogue')">Re-generate</button>
                         <button onclick="openDialoguePopup(this, 'feedback')">Feedback</button>
                     </div>
-
-<!-- Popup Modal -->
-<div id="dialoguePopup" class="popup-modal">
-    <div class="popup-content">
-        <h3 id="popupHeader">Edit Dialogue</h3>
-        
-        <!-- AI Feedback Section (Visible only in 'Feedback' mode) -->
-        <div id="aiFeedbackSection" class="ai-feedback-section">
-            <p><strong>AI Feedback Suggestion:</strong></p>
-            <p id="aiFeedbackText">This is a placeholder for AI-generated feedback suggestions.</p>
-        </div>
-        
-        <textarea id="dialogueTextArea"></textarea>
-        <div class="popup-buttons">
-            <button id="aiButton" onclick="generateAIContent()">AI Paraphrase</button>
-            <button onclick="saveEditedDialogue()">Save</button>
-        </div>
-        <span class="close-modal" onclick="closePopup()">×</span>
-    </div>
-</div>
-
-
-                    
                     <span class="three-dots" onclick="togglePopupMenu(this)">⋮</span>
-
-
 
                     <div class="popup-menu">
                         <button onclick="openPopup('narratives')">Add Narratives</button>
                         <button onclick="openPopup('dialogues')">Add Dialogues</button>
                     </div>
-                    
 
+                    <!-- Popup Modal -->
+                    <div id="dialoguePopup" class="popup-modal">
+                        <div class="popupcontent">
+                            <h3 id="popupHeader">Edit Re-generate</h3>
+                            <!-- AI Feedback Section (Visible only in 'Feedback' mode) -->
+                            <div id="aiFeedbackSection" class="ai-feedback-section">
+                                <p><strong>AI Feedback Suggestion:</strong></p>
+                                <p id="aiFeedbackText">This is a placeholder for AI-generated feedback suggestions.</p>
+                            </div>
 
-<!-- Popup Modal -->
-<div id="popupModal" class="popup-modal">
-    <div class="popup-content">
-        <h3 id="popupTitle">Add Content</h3>
-        <textarea id="popupText" placeholder="Write your content here..."></textarea>
-        <div class="popup-buttons">
-            <button id="aiButton" onclick="generateAIContent()">AI Narratives</button>
-            <button onclick="confirmContent()">Confirm</button>
-        </div>
-        <span class="close-modal" onclick="closePopup()">×</span>
-    </div>
-</div>
+                            <textarea id="dialogueTextArea"></textarea>
+                            <div class="popup-buttons">
+                                <button id="aiButton" onclick="generateAIContent()">AI Paraphrase</button>
+                                <button onclick="saveEditedDialogue()">Confirm</button>
+                            </div>
+                            <span class="close-modal" onclick="closePopup()">×</span>
 
+                            <span class="three-dots" onclick="togglePopupMenu(this)">⋮</span>
 
-
-
-                    <!-- <span class="three-dots" onclick="showMenu(this)">⋮</span> -->
-
+                            <div class="popup-menu">
+                                <button onclick="openPopup('narratives')">Add Narratives</button>
+                                <button onclick="openPopup('dialogues')">Add Dialogues</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            
-                <div class="dialogue" data-character="Character B">
-                    <p><strong>Character B:</strong> I'm good, thanks! And you?</p>
+
+                <div class="dialogue" data-character="Character A">
+                    <p class="subtitle"><strong>Mary :</strong> (whispering to herself)<br>This place is...strange.</p>
                     <div class="hover-buttons">
                         <button onclick="openDialoguePopup(this, 'paraphrase')">Paraphrase</button>
-                        <button onclick="openDialoguePopup(this, 'dialogue')">Dialogue</button>
+                        <button onclick="openDialoguePopup(this, 'dialogue')">Re-generate</button>
                         <button onclick="openDialoguePopup(this, 'feedback')">Feedback</button>
                     </div>
+                    <span class="three-dots" onclick="togglePopupMenu(this)">⋮</span>
 
-<!-- Popup Modal -->
-<div id="dialoguePopup" class="popup-modal">
-    <div class="popup-content">
-        <h3 id="popupHeader">Edit Dialogue</h3>
-        
-        <!-- AI Feedback Section (Visible only in 'Feedback' mode) -->
-        <div id="aiFeedbackSection" class="ai-feedback-section">
-            <p><strong>AI Feedback Suggestion:</strong></p>
-            <p id="aiFeedbackText">This is a placeholder for AI-generated feedback suggestions.</p>
-        </div>
-        
-        <textarea id="dialogueTextArea"></textarea>
-        <div class="popup-buttons">
-            <button id="aiButton" onclick="generateAIContent()">AI Paraphrase</button>
-            <button onclick="saveEditedDialogue()">Save</button>
-        </div>
-        <span class="close-modal" onclick="closePopup()">×</span>
-    </div>
-</div>
+                    <div class="popup-menu">
+                        <button onclick="openPopup('narratives')">Add Narratives</button>
+                        <button onclick="openPopup('dialogues')">Add Dialogues</button>
+                    </div>
 
+                    <!-- Popup Modal -->
+                    <div id="dialoguePopupA" class="popup-modal">
+                        <div class="popupcontent">
+                            <h3 id="popupHeader">Edit Re-generate</h3>
+                            <!-- AI Feedback Section (Visible only in 'Feedback' mode) -->
+                            <div id="aiFeedbackSection" class="ai-feedback-section">
+                                <p><strong>AI Feedback Suggestion:</strong></p>
+                                <p id="aiFeedbackText">This is a placeholder for AI-generated feedback suggestions.</p>
+                            </div>
 
-                        <span class="three-dots" onclick="showMenu(this)">⋮</span>
+                            <textarea id="dialogueTextArea"></textarea>
+                            <div class="popup-buttons">
+                                <button id="aiButton" onclick="generateAIContent()">AI Paraphrase</button>
+                                <button onclick="saveEditedDialogue()">Confirm</button>
+                            </div>
+                            <span class="close-modal" onclick="closePopup()">×</span>
 
+                            <span class="three-dots" onclick="togglePopupMenu(this)">⋮</span>
 
+                            <div class="popup-menu">
+                                <button onclick="openPopup('narratives')">Add Narratives</button>
+                                <button onclick="openPopup('dialogues')">Add Dialogues</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="dialogue" data-character="Character B">
+                    <p class="subtitle"><strong>Puppet :</strong> (in a high-pitched voice)<br>Oh,
+                        Mary! I think we’ve stumbled into a fairy tale gone wrong!</p>
+                    <div class="hover-buttons">
+                        <button onclick="openDialoguePopup(this, 'paraphrase')">Paraphrase</button>
+                        <button onclick="openDialoguePopup(this, 'dialogue')">Re-generate</button>
+                        <button onclick="openDialoguePopup(this, 'feedback')">Feedback</button>
+                    </div>
+                    <span class="three-dots" onclick="togglePopupMenu(this)">⋮</span>
+
+                    <div class="popup-menu">
+                        <button onclick="openPopup('narratives')">Add Narratives</button>
+                        <button onclick="openPopup('dialogues')">Add Dialogues</button>
+                    </div>
+
+                    <!-- Popup Modal -->
+                    <div id="dialoguePopupB" class="popup-modal">
+                        <div class="popupcontent">
+                            <h3 id="popupHeader">Edit Re-generate</h3>
+                            <!-- AI Feedback Section (Visible only in 'Feedback' mode) -->
+                            <div id="aiFeedbackSection" class="ai-feedback-section">
+                                <p><strong>AI Feedback Suggestion:</strong></p>
+                                <p id="aiFeedbackText">This is a placeholder for AI-generated feedback suggestions.</p>
+                            </div>
+
+                            <textarea id="dialogueTextArea"></textarea>
+                            <div class="popup-buttons">
+                                <button id="aiButton" onclick="generateAIContent()">AI Paraphrase</button>
+                                <button onclick="saveEditedDialogue()">Confirm</button>
+                            </div>
+                            <span class="close-modal" onclick="closePopup()">×</span>
+
+                            <!-- <span class="three-dots" onclick="togglePopupMenu(this)">⋮</span> -->
+
+                            <div class="popup-menu">
+                                <button onclick="openPopup('narratives')">Add Narratives</button>
+                                <button onclick="openPopup('dialogues')">Add Dialogues</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Add narratives Popup Modal -->
+                <div class="popup-modal" id="narrativespopupModal">
+                    <div class="popupcontent">
+                        <h3 id="popupTitle">Add Content</h3>
+                        <textarea id="narrativespopupText"
+                            placeholder="Enter narratives or prompt here (e.g., write a short scene for a this script where [specific context or action] )"></textarea>
+                        <div class="popup-buttons">
+                            <button id="aiButton" onclick="generateAIContent()">AI Narratives</button>
+                            <button onclick="openConfirmModal()">Confirm</button>
+                        </div>
+                        <span class="close-modal" onclick="closenarrativespopupModal()">×</span>
+                    </div>
+                </div>
+
+                <!--Add dialogues Popup Modal -->
+                <div class="popup-modal" id="dialoguespopupModal">
+                    <div class="popupcontent">
+                        <h3 id="popupTitle">Add Content</h3>
+                        <textarea id="dialoguespopupText"
+                            placeholder="Enter dialogues or prompt here (e.g., add dialogues or actions of [characters])"></textarea>
+                        <div class="popup-buttons">
+                            <button id="aiButton" onclick="generateAIContent()">AI Narratives</button>
+                            <button onclick="openConfirmModal()">Confirm</button>
+                        </div>
+                        <span class="close-modal" onclick="closedialoguespopupModal()">×</span>
+                    </div>
+                </div>
+
             </div>
-            
-                
-                <!-- <textarea id="draftText" placeholder="Start writing your draft..."></textarea> -->
         </div>
         <div class="export-container">
-            <input type="file" id="uploadFile" accept=".txt" onchange="uploadFile(event)" />
+            <button class="export-btn">Expand Story
+                <img class="bling_blinglogo" src="images/bling_bling.png" alt="bling_bling logo">
+            </button>
+            <button class="export-btn">Export Story
+                <img class="exportlogo" src="images/export.png" alt="export logo">
+            </button>
         </div>
+
+        <!--Add Confirm Popup Modal -->
+        <div id="confirmModal" class="popup-modal">
+            <div class="popup-content">
+                <span class="confirm-close-modal" onclick="closeconfirmModal()">×</span>
+                <h3>"Do you want this change to affect the rest of the story?"</h3>
+                <button class="confirmbutton" onclick="openconfirmModal()"><b>Yes, update the story</b>
+                    (Future storylines will adjust based on this change.)</button>
+                <button class="confirmbutton" onclick="closeconfirmModal()"><b>No, only update this line</b>
+                    (The rest of the story will stay the same.)</button>
+            </div>
+        </div>
+
     </div>
 
     <script src="writescript.js"></script>
