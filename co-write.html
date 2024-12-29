@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Co-Write Dialogues</title>
+    <link rel="stylesheet" href="co-write.css">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <button class="hamburger" onclick="toggleNav()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </button>
+        <h1 class="page-title">Co-Write Dialogues</h1>
+        <button class="back-button" onclick="goBack()">← Back</button>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">×</a>
+        <ul class="sidebar-menu">
+            <li><a href="welcome.html">New</a></li>
+            <li><a href="#">Recent</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="co-write-container">
+        <!-- Display Dialogue Section -->
+        <div class="dialogue-display">
+            <p>
+                <strong>INT. BAKER'S PHANTOM - NIGHT</strong><br>
+                Inside a dimly lit bakery, the shelves are lined with creepy, malformed bread — each loaf has an eerie
+                face carved into it. A thick fog filled with the scent of stale flour permeates the room. A little girl,
+                Mary (8), with wild curls and a puppet clutched to her chest, wanders through the bakery in a daze.
+            </p>
+        </div>
+
+        <!-- Character Selection Section -->
+        <div class="character-selection">
+            <div class="choose-character">
+                <label for="character-name"><strong>Choose your character:</strong></label>
+                <input id="character-name" type="text" value="Mary" readonly>
+                <button class="add-character">+</button>
+            </div>
+            <div class="choose-ai-character">
+                <label for="ai-character-name"><strong>Choose AI character:</strong></label>
+                <input id="ai-character-name" type="text" value="Puppet" readonly>
+                <button class="add-character">+</button>
+            </div>
+            <button class="save-button">Save</button>
+        </div>
+
+        <!-- Textbox Section -->
+        <div class="dialogue-input">
+            <textarea placeholder="It’s your turn to enter the character's line here (e.g., Puppet: Oh, Mary! I think we've stumbled into a fairy tale gone wrong!)"></textarea>
+            <button class="send-dialogue">→</button>
+        </div>
+
+        <!-- Bottom Buttons -->
+        <div class="bottom-buttons">
+            <button class="change-characters">Change characters</button>
+            <button class="finish-dialogue">Finish this dialogue</button>
+        </div>
+    </div>
+
+    <script src="co-write.js"></script>
+</body>
+
+</html>

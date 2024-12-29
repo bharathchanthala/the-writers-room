@@ -350,3 +350,8 @@ function closeconfirmModal() {
     }
 }
 
+function redirectToCoWrite() {
+    window.location.href = "co-write.html";
+}
+
+
