@@ -56,6 +56,19 @@
             <button class="save-button">Save</button>
         </div>
 
+         <!-- Chat Box Section (Initially Hidden) -->
+         <div class="chat-box hidden">
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input">
+                <textarea id="userDialogue" placeholder="Enter your dialogue here..."></textarea>
+                <button onclick="sendUserDialogue()">➤</button>
+            </div>
+            <div class="chat-buttons">
+                <button onclick="generateAiDialogue()">AI's Turn</button>
+                <button onclick="finishDialogue()">Finish this dialogue</button>
+            </div>
+        </div>
+        
         <!-- Textbox Section -->
         <div class="dialogue-input">
             <textarea placeholder="It’s your turn to enter the character's line here (e.g., Puppet: Oh, Mary! I think we've stumbled into a fairy tale gone wrong!)"></textarea>
